@@ -44,8 +44,8 @@ size_flags_horizontal = 2
 size_flags_vertical = 8
 theme = ExtResource("4_0tvam")
 theme_override_font_sizes/font_size = 16
-text = "Sands of Time timer
-MCC 15th anniversary             
+text = "MCC 15th Anniversary Party
+Sands of Time themed timer
 MCC-15-SoT-Timer v1.0"
 
 [node name="MainOptionsHBoxContainer" type="MarginContainer" parent="AppPanelContainer/MainMenuHBoxContainer"]
