@@ -1,0 +1,229 @@
+[gd_scene load_steps=14 format=3 uid="uid://du5fmnttdjiyj"]
+
+[ext_resource type="Texture2D" uid="uid://ehf1mrk5en7l" path="res://Assets/Sprites/mcc_title.png" id="1_4oell"]
+[ext_resource type="Texture2D" uid="uid://k1x2mqmrjfkv" path="res://Assets/Sprites/sot_bg.png" id="1_75c42"]
+[ext_resource type="Script" uid="uid://tmciwrqepimn" path="res://Scripts/Nodes/Application.gd" id="1_uy5ty"]
+[ext_resource type="Theme" uid="uid://bivl73ukhpcir" path="res://Themes/TitleTheme.tres" id="3_u4beh"]
+[ext_resource type="Theme" uid="uid://c2ftgrc3f58nq" path="res://Themes/MojangleTheme.tres" id="4_0tvam"]
+[ext_resource type="Theme" uid="uid://4dqh6trsnig7" path="res://Themes/StartButtonTheme.tres" id="5_o7l5a"]
+[ext_resource type="Theme" uid="uid://dhjlc3ud2x3aq" path="res://Themes/WarningContainerTheme.tres" id="5_yysnp"]
+[ext_resource type="Theme" uid="uid://bnesuxa38pwyv" path="res://Themes/ResetButtonTheme.tres" id="8_qn8d0"]
+[ext_resource type="Script" uid="uid://03o41nxf40p0" path="res://Scripts/Classes/SotTimer.gd" id="8_wrv0b"]
+[ext_resource type="Script" uid="uid://b1ts82mhlu6ed" path="res://Scripts/Classes/AudioManager.gd" id="10_mjyb8"]
+[ext_resource type="Script" uid="uid://bvje5qxo0c4fm" path="res://Scenes/Sandclock.gd" id="11_w8guq"]
+[ext_resource type="Texture2D" uid="uid://dqbgy76e6v37r" path="res://Assets/Sprites/sot_sand_clock.png" id="11_ys4ic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4beh"]
+texture = ExtResource("1_75c42")
+modulate_color = Color(0.439049, 0.439049, 0.439049, 1)
+
+[node name="Application" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uy5ty")
+
+[node name="AppPanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u4beh")
+
+[node name="MainMenuHBoxContainer" type="HBoxContainer" parent="AppPanelContainer"]
+layout_mode = 2
+
+[node name="VersionLabel" type="Label" parent="AppPanelContainer/MainMenuHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme = ExtResource("4_0tvam")
+theme_override_font_sizes/font_size = 16
+text = "Sands of Time timer
+MCC 15th anniversary             
+MCC-15-SoT-Timer v1.0"
+
+[node name="MainOptionsHBoxContainer" type="MarginContainer" parent="AppPanelContainer/MainMenuHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MCCLogo" type="TextureRect" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(355, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_4oell")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_u4beh")
+text = "SANDS OF TIME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerSettingBox" type="HBoxContainer" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("4_0tvam")
+alignment = 1
+
+[node name="TimerInput" type="LineEdit" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer/TimerSettingBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "45"
+max_length = 3
+
+[node name="TimerUnitLabel" type="Label" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer/TimerSettingBox"]
+layout_mode = 2
+text = "Seconds"
+
+[node name="WarningPanelContainer" type="PanelContainer" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("5_yysnp")
+
+[node name="WarningMessage" type="Label" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer/WarningPanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(355, 28)
+layout_mode = 2
+text = "Warning Message shown here. "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TimerStartButton" type="Button" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_o7l5a")
+text = "START"
+
+[node name="TimerResetButton" type="Button" parent="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("8_qn8d0")
+text = "RESET"
+
+[node name="CreditLabel" type="Label" parent="AppPanelContainer/MainMenuHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme = ExtResource("4_0tvam")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+
+[node name="SotTimer" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_wrv0b")
+metadata/_custom_type_script = "uid://03o41nxf40p0"
+
+[node name="Timer" type="Timer" parent="SotTimer"]
+unique_name_in_owner = true
+one_shot = true
+ignore_time_scale = true
+
+[node name="ProcessTimer" type="Timer" parent="SotTimer"]
+ignore_time_scale = true
+
+[node name="AudioManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_mjyb8")
+metadata/_custom_type_script = "uid://b1ts82mhlu6ed"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioManager"]
+unique_name_in_owner = true
+volume_db = 6.0
+bus = &"Music"
+
+[node name="ButtonPlayer" type="AudioStreamPlayer" parent="AudioManager"]
+unique_name_in_owner = true
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="TimerPlayer" type="AudioStreamPlayer" parent="AudioManager"]
+unique_name_in_owner = true
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="Sandclock" type="Window" parent="."]
+title = "Sandclock"
+initial_position = 1
+size = Vector2i(247, 52)
+wrap_controls = true
+unresizable = true
+borderless = true
+always_on_top = true
+unfocusable = true
+sharp_corners = true
+script = ExtResource("11_w8guq")
+
+[node name="PanelContainer" type="PanelContainer" parent="Sandclock"]
+custom_minimum_size = Vector2(220, 42)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Sandclock/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sandclock/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="LeftSandclock" type="TextureRect" parent="Sandclock/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("11_ys4ic")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CountdownLabel" type="Label" parent="Sandclock/PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0tvam")
+text = "Countdown"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightSandclock" type="TextureRect" parent="Sandclock/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("11_ys4ic")
+expand_mode = 2
+stretch_mode = 4
+
+[connection signal="pressed" from="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer/TimerStartButton" to="." method="_on_timer_start_button_pressed"]
+[connection signal="pressed" from="AppPanelContainer/MainMenuHBoxContainer/MainOptionsHBoxContainer/VBoxContainer/TimerResetButton" to="." method="_on_timer_reset_button_pressed"]
+[connection signal="complete" from="SotTimer" to="." method="_on_sot_timer_complete"]
+[connection signal="complete" from="SotTimer" to="Sandclock" method="_on_sot_timer_complete"]
+[connection signal="reset" from="SotTimer" to="Sandclock" method="_on_sot_timer_reset"]
+[connection signal="update" from="SotTimer" to="Sandclock" method="_on_sot_timer_update"]
+[connection signal="timeout" from="SotTimer/Timer" to="SotTimer" method="_on_timer_timeout"]
+[connection signal="timeout" from="SotTimer/ProcessTimer" to="SotTimer" method="_on_process_timer_timeout"]

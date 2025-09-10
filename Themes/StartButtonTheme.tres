@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://4dqh6trsnig7"]
+
+[ext_resource type="FontFile" uid="uid://b5n5atvup7pm0" path="res://Assets/Fonts/MINECRAFTER.REG.TTF" id="1_0kw57"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kw57"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqusr"]
+bg_color = Color(0.305882, 0.635294, 0.207843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.184314, 0.482353, 0.0941176, 1)
+expand_margin_top = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kw57"]
+bg_color = Color(0.227451, 0.592157, 0.117647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.184314, 0.482353, 0.0941176, 1)
+expand_margin_top = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrfp8"]
+bg_color = Color(0.203922, 0.533333, 0.105882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.184314, 0.482353, 0.0941176, 1)
+expand_margin_top = 7.0
+
+[resource]
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_0kw57")
+Button/styles/focus = SubResource("StyleBoxEmpty_0kw57")
+Button/styles/hover = SubResource("StyleBoxFlat_lqusr")
+Button/styles/normal = SubResource("StyleBoxFlat_0kw57")
+Button/styles/pressed = SubResource("StyleBoxFlat_yrfp8")

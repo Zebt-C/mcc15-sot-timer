@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dhjlc3ud2x3aq"]
+
+[ext_resource type="FontFile" uid="uid://b6pv0k1ubxd4k" path="res://Assets/Fonts/MINECRAFT.TTF" id="1_uiis5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjdvm"]
+bg_color = Color(0.172549, 0.0431373, 0.054902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.517647, 0.12549, 0.160784, 1)
+
+[resource]
+Label/colors/font_color = Color(0.917647, 0.52549, 0.560784, 1)
+Label/font_sizes/font_size = 18
+Label/fonts/font = ExtResource("1_uiis5")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_tjdvm")

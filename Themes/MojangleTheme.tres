@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c2ftgrc3f58nq"]
+
+[ext_resource type="FontFile" uid="uid://b6pv0k1ubxd4k" path="res://Assets/Fonts/MINECRAFT.TTF" id="1_bkhny"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkhny"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.192157, 0.196078, 0.2, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.960214, 0.960219, 0.961643, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_liyyr"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.192157, 0.196078, 0.2, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.117647, 0.117647, 0.121569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbqq3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.256187, 0.259191, 0.268234, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.345098, 0.345098, 0.352941, 1)
+
+[resource]
+HBoxContainer/constants/separation = 20
+Label/font_sizes/font_size = 22
+Label/fonts/font = ExtResource("1_bkhny")
+LineEdit/font_sizes/font_size = 22
+LineEdit/fonts/font = ExtResource("1_bkhny")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_bkhny")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_liyyr")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_dbqq3")
