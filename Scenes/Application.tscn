@@ -39,6 +39,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_u4beh")
 layout_mode = 2
 
 [node name="VersionLabel" type="Label" parent="AppPanelContainer/MainMenuHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
@@ -46,7 +47,7 @@ theme = ExtResource("4_0tvam")
 theme_override_font_sizes/font_size = 16
 text = "MCC 15th Anniversary Party
 Sands of Time themed timer
-MCC-15-SoT-Timer v1.0"
+MCC-15-SoT-Timer v"
 
 [node name="MainOptionsHBoxContainer" type="MarginContainer" parent="AppPanelContainer/MainMenuHBoxContainer"]
 layout_mode = 2

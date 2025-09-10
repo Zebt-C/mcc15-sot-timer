@@ -12,6 +12,7 @@ extends Control
 
 
 const VERSION :String = "1.0.1"
+@onready var version_label :Label = %VersionLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +20,8 @@ func _ready() -> void:
 	print("Minecraft Championship 15th anniversary Sands of Time themed timer, version " + VERSION)
 	
 	audio_manager.play_music("HUB")
+	
+	version_label.set_text(version_label.get_text() + VERSION)
 	
 	warn_container.hide()
 	reset_btn.hide()
