@@ -44,6 +44,9 @@ func get_status() -> bool:
 	
 func get_remaining_time() -> int:
 	return int(remaining_secs)
+	
+func translate_ret_code(ret:int) -> String:
+	return ERR_MSG.get(CODE.find_key(ret))
 
 func set_timer(countdown:String) -> int:
 	if has_started:
@@ -58,7 +61,7 @@ func set_timer(countdown:String) -> int:
 		printerr(ERR_MSG.INVALID)
 		return CODE.INVALID
 		
-	print_debug("Set timer countdown to " + countdown +  ", previously " + str(remaining_secs))
+	#print_debug("Set timer countdown to " + countdown +  " seconds, previously " + str(remaining_secs) + " seconds.")
 	remaining_secs = cd
 	timer.set_wait_time(remaining_secs)
 	return CODE.SUCCESS
@@ -68,7 +71,7 @@ func start() -> int:
 		printerr(ERR_MSG.ALREADY_COUNTING)
 		return CODE.ALREADY_COUNTING
 		
-	print_debug("Timer started with " + str(remaining_secs) + "-second countdown.")
+	#print_debug("Timer started with " + str(remaining_secs) + "-second countdown.")
 	timer.start()
 	proc_timer.start(1)
 	has_started = not timer.is_stopped()
@@ -80,7 +83,7 @@ func stop() -> int:
 		printerr(ERR_MSG.ALREADY_STOPPED)
 		return CODE.ALREADY_STOPPED
 		
-	print_debug("Timer stopped.")
+	#print_debug("Timer stopped.")
 	timer.stop()
 	has_started = not timer.is_stopped()
 	reset.emit()
@@ -89,7 +92,7 @@ func stop() -> int:
 
 func _on_timer_timeout() -> void:
 	has_started = false
-	print_debug("Timer has expired. Emitting complete signal.")
+	#print_debug("Timer has expired. Emitting complete signal.")
 	complete.emit()
 
 

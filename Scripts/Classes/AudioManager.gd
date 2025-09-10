@@ -2,7 +2,7 @@ class_name AudioManager extends Node
 
 @onready var music_player :AudioStreamPlayer = %MusicPlayer
 @onready var btn_player :AudioStreamPlayer = %ButtonPlayer
-@onready var tmr_player :AudioStreamPlayer = %TimerPlayer
+@onready var timer_player :AudioStreamPlayer = %TimerPlayer
 
 var music_hub :AudioStream = load("res://Assets/Audio/music_hub.ogg")
 var music_sot :AudioStream = load("res://Assets/Audio/music_sot.ogg")
@@ -39,7 +39,7 @@ const CODE :Dictionary = {
 }
 
 const ERR_MSG :Dictionary = {
-	SUCESS = "Success.",
+	SUCESS = "Successfully plays ",
 	UNKNOWN = "Unknown audio.",
 	UNCHANGED = "Request matches audio currently played. Nothing changed."
 }
@@ -65,7 +65,7 @@ func play_music(new_music:String) -> int:
 	music_player.stop()
 	music_player.set_stream(music)
 	music_player.play()
-	print_debug(ERR_MSG.SUCESS)
+	#print_debug(ERR_MSG.SUCESS + new_music + ".")
 	return CODE.SUCCESS
 	
 func play_btn_sfx(btn_sfx:String) -> int:
@@ -79,7 +79,7 @@ func play_btn_sfx(btn_sfx:String) -> int:
 	btn_player.stop()
 	btn_player.set_stream(sfx)
 	btn_player.play()
-	print_debug(ERR_MSG.SUCESS)
+	#print_debug(ERR_MSG.SUCESS + btn_sfx + ".")
 	return CODE.SUCCESS
 
 func play_timer_sfx(timer_sfx:String) -> int:
@@ -90,8 +90,8 @@ func play_timer_sfx(timer_sfx:String) -> int:
 		return CODE.UNKNOWN
 
 	# Switch to new sfx
-	tmr_player.stop()
-	tmr_player.set_stream(sfx)
-	tmr_player.play()
-	print_debug(ERR_MSG.SUCESS)
+	timer_player.stop()
+	timer_player.set_stream(sfx)
+	timer_player.play()
+	#print_debug(ERR_MSG.SUCESS + timer_sfx + ".")
 	return CODE.SUCCESS

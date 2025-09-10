@@ -11,9 +11,12 @@ extends Control
 @onready var warn_container :PanelContainer = %WarningPanelContainer
 
 
+const VERSION :String = "1.0.1"
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Hello world!")
+	print("Minecraft Championship 15th anniversary Sands of Time themed timer, version " + VERSION)
 	
 	audio_manager.play_music("HUB")
 	
@@ -27,7 +30,7 @@ func _on_timer_start_button_pressed() -> void:
 	# Start timer
 	var retval :int = sot.set_timer(input.get_text())
 	if retval < 0:
-		warn_msg.set_text(SotTimer.ERR_MSG.get(SotTimer.CODE.find_key(retval)))
+		warn_msg.set_text(sot.translate_ret_code(retval))
 		warn_container.show()
 		
 		input.set_editable(true)
@@ -36,7 +39,7 @@ func _on_timer_start_button_pressed() -> void:
 	else:
 		retval = sot.start()
 		if retval < 0:
-			warn_msg.set_text(SotTimer.ERR_MSG.get(SotTimer.CODE.find_key(retval)))
+			warn_msg.set_text(sot.translate_ret_code(retval))
 			warn_container.show()
 			
 			input.set_editable(true)
@@ -57,7 +60,7 @@ func _on_timer_reset_button_pressed() -> void:
 	# Reset timer
 	var retval :int = sot.stop()
 	if retval < 0:
-		warn_msg.set_text(SotTimer.ERR_MSG.get(SotTimer.CODE.find_key(retval)))
+		warn_msg.set_text(sot.translate_ret_code(retval))
 		warn_container.show()
 		
 		input.set_editable(false)
