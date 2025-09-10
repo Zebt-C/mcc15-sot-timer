@@ -4,7 +4,7 @@
 
 ## About this app
 
-This app takes inspiration from a [video](https://www.bilibili.com/video/BV19Dv4ejEuf/)(on Bilibili, Simplified Chinese) that demonstrates a desktop timer app with Sands of Time,  a minigame featured in [MCC 15th Anniversary Party]([MCC x Minecraft 15th Anniversary Party – Minecraft Wiki](https://minecraft.wiki/w/MCC_x_Minecraft_15th_Anniversary_Party)) event server. It is a rework using [Godot Game Engine](#https://godotengine.org/).
+This app takes inspiration from a [video](https://www.bilibili.com/video/BV19Dv4ejEuf/)(on Bilibili, Simplified Chinese) that demonstrates a desktop timer app with Sands of Time,  a minigame featured in [MCC 15th Anniversary Party](https://minecraft.wiki/w/MCC_x_Minecraft_15th_Anniversary_Party) event server. It is a rework using [Godot Game Engine](#https://godotengine.org/).
 
 This app features:
 
