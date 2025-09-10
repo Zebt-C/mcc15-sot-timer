@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="MCC15 Sot Timer"
+config/name="MCC15 Anniversary Party Sands of Time Themed Timer"
 run/main_scene="uid://du5fmnttdjiyj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://c3a8a55w0s7hp"
